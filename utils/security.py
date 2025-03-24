@@ -1,3 +1,4 @@
+# utils/security.py
 from datetime import datetime, timedelta
 from typing import Optional, Dict, Any
 from jose import jwt
@@ -7,7 +8,8 @@ from fastapi.security import OAuth2PasswordBearer
 from pydantic import ValidationError
 from config import settings
 from core.models.user import User
-from core.database.repositories.user_repository import UserRepository
+# Remove this line to avoid circular import:
+# from core.database.repositories.user_repository import UserRepository
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -51,7 +53,10 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
             raise credentials_exception
     except (jwt.JWTError, ValidationError):
         raise credentials_exception
-        
+    
+    # Import UserRepository here to avoid circular import
+    from core.database.repositories.user_repository import UserRepository
+    
     user_repo = UserRepository()
     user = await user_repo.find_by_id(user_id)
     
