@@ -77,7 +77,7 @@ class SimulationInDB(SimulationBase):
                 },
                 "events_generated": ["60d5ec2dcb43a5e37d0c7520", "60d5ec2dcb43a5e37d0c7521"],
                 "alerts_generated": ["60d5ec2dcb43a5e37d0c7522"],
-                "metadata": {"attack_phases": 4, "ioc_generated": true}
+                "metadata": {"attack_phases": 4, "ioc_generated": True}
             }
         }
 
@@ -124,6 +124,6 @@ class Simulation(SimulationBase):
                 },
                 "events_generated": ["60d5ec2dcb43a5e37d0c7520", "60d5ec2dcb43a5e37d0c7521"],
                 "alerts_generated": ["60d5ec2dcb43a5e37d0c7522"],
-                "metadata": {"attack_phases": 4, "ioc_generated": true}
+                "metadata": {"attack_phases": 4, "ioc_generated": True}
             }
         }
